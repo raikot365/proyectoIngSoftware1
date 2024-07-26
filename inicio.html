@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIVIGEST - Inicio</title>
+    <link rel="stylesheet" href="styles/styles2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">CIVIGEST</div>
+        <nav>
+            <ul>
+                <li class="notification-menu">
+                    <a href="#"><img src="assets/images/notification-icon-3.svg" alt="Notification Icon"></a>
+                    <ul class="dropdown">
+                        <li><a href="#">Notificación 1</a></li>
+                        <li><a href="#">Notificación 2</a></li>
+                        <li><a href="#">Notificación 3</a></li>
+                    </ul>
+                </li>
+                <li class="user-menu">
+                    <a href="#"><img src="assets/images/user-icon-3.svg" alt="User Icon"></a>
+                    <ul class="dropdown">
+                        <li><a href="#">Perfil</a></li>
+                        <li><a href="#">Proyectos</a></li>
+                        <li><a href="index.html">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="projects-section">
+            <div class="project-header">
+                <h2 class="h2-project-1">Proyectos Activos</h2>
+                <div class="button-container">
+                <button class="create-button" onclick="openCreateProjectModal('active-projects')">+</button>
+                <button class="toggle-button-1" onclick="toggleMenu('active-projects')">▼</button>
+                </div>
+            </div>
+            <div id="active-projects" class="project-list">
+                <div class="project-card-1">
+                    <h3>Complejo Departamentos</h3>
+                    <p>Etapa 5: Post-Construcción</p>
+                    <p>2 meses para finalización</p>
+                </div>
+                <div class="project-card-1">
+                    <h3>Puente Río Uruguay</h3>
+                    <p>Etapa 4: Construcción</p>
+                    <p>Actividades sin personal</p>
+                </div>
+            </div>
+        </section>
+        <section class="projects-section">
+            <div class="project-header">
+                <h2 class="h2-project-2">Proyectos Finalizados</h2>
+                <button class="toggle-button-2" onclick="toggleMenu('finished-projects')">▼</button>
+            </div>
+            <div id="finished-projects" class="project-list">
+                <div class="project-card-2">
+                    <h3>Edificio Central</h3>
+                    <p>Finalizado en 2023</p>
+                </div>
+            </div>
+        </section>
+        <section class="calendar-section">
+            <h2 class="h2-calendar">Actividades</h2>
+                <div class="calendar" id="calendar">
+                </div>
+        </section>
+    </main>
+     <!-- Ventana emergente para crear nuevo proyecto -->
+        <div id="create-project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCreateProjectModal()">&times;</span>
+                <h2 id="modal-title">Nuevo Proyecto</h2>
+                <form id="create-project-form" onsubmit="addNewProject(event)">
+                    <label for="project-name">Nombre del Proyecto:</label>
+                    <input type="text" id="project-name" name="project-name" required oninput="updateModalTitle(this.value)"><br><br>
+
+                    <div id="stages-container">
+                        <!-- Aquí se añadirán dinámicamente las etapas -->
+                    </div>
+
+                    <button type="button" onclick="addStage()">Agregar Etapa</button><br><br>
+
+                    <button type="submit" onclick="mostrarMensaje()" >Crear Proyecto</button>
+                </form>
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="scripts/funciones.js"></script>
+</body>
+</html>

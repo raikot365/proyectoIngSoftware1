@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="html-log" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body class="body-log">
+    <div class="back-container">
+        <a href="index.html" class="button-back">Volver</a>
+    </div>
+    <div class="container">
+        <div class="image image1"></div>
+        <div class="diagonal-stripe"></div>
+        <div class="image image2"></div>
+    </div>
+    <section id="login">
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <input id="username" type="text" placeholder="Usuario / Correo" required>
+                <input id="password" type="password" placeholder="Contraseña" required>
+                <button type="button" id="loginButton">Ingresar</button>
+                <div class="links">
+                    <a href="#">Registrarse</a>
+                    <a href="#">Olvidé mi contraseña</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Incluir script de flatpickr desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Script personalizado -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar si flatpickr está definido
+            if (typeof flatpickr !== 'undefined') {
+                // Usar flatpickr aquí
+                flatpickr("#datepicker", {
+                    dateFormat: "d-m-Y"
+                    // Otras configuraciones de flatpickr
+                });
+            } else {
+                console.error('flatpickr no está definido. Asegúrate de haber cargado la librería correctamente.');
+            }
+
+            // Ejemplo de función para validar inicio de sesión
+            document.getElementById('loginButton').addEventListener('click', function() {
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+
+                if (username === 'admin' && password === 'admin') {
+                    // alert('Inicio de sesión exitoso como admin');
+                    // Redirigir a la página de inicio
+                    window.location.href = './inicio.html';
+                } else {
+                    alert('Credenciales incorrectas. Inténtalo de nuevo.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+<!--         -->

@@ -1,0 +1,232 @@
+/* styles/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #333;
+    color:white;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.5em;
+    background-color: #fff; /* Fondo blanco para que el degradado se vea */
+    color: transparent; /* Oculta el color original del texto */
+    background-clip: text; /* Recorta el degradado al texto */
+    background-image: linear-gradient(to right,#FFD700  0%,#fff  100%); /* Degradado de negro a rojo */
+    mix-blend-mode: normal;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #ebebe9;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+section{
+    padding: 40px;
+    background:#ffffff00;
+    color:#d6d6d3;
+}
+
+.hero {
+    background: url('https://cdn.pixabay.com/photo/2020/03/21/06/55/bridge-4952834_1280.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fbd500;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #fbd500;
+    color: #14110a;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.button-back{
+    width: 100%;
+    padding: 0.75rem;
+    border: #14110a;
+    background-color: #fbd500;
+    color: #14110a;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.back-container{
+    padding-top: 15px;
+    padding-left: 5px;
+    position: absolute;
+}
+
+.body-log{
+    background-color: #333;
+}
+
+#login {
+    padding: 4rem 2rem;
+    background-color: transparent;
+    text-align: center;
+    color:black;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#login h2 {
+    margin-bottom: 1.5rem;
+}
+
+form input {
+    width: -webkit-fill-available;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    background-color: #fbd500;
+    color: #14110a;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form .links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+form .links a {
+    color: #14110a;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+form .links a:hover {
+    text-decoration: underline;
+}
+
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+footer {
+    background: #333;
+    color: #ebebe9;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.form-contacto{
+    display: flex;
+    flex-direction:column;
+    align-items: auto;
+}
+.label-men{
+    width: 100%;
+}
+.contact-men{
+    width:-webkit-fill-available;
+}
+
+.label-correo{
+    width:100%;
+}
+
+#about{
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+.about-title{
+    text-align: center;
+}
+
+.main-style {
+    background: linear-gradient(to bottom, #404040 40%, #333 60%);
+}
+
+
