@@ -78,18 +78,24 @@
         <div id="create-project-modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeCreateProjectModal()">&times;</span>
-                <h2 id="modal-title">Nuevo Proyecto</h2>
+                <h2 id="modal-title">Nueva Obra</h2>
                 <form id="create-project-form" onsubmit="addNewProject(event)">
-                    <label for="project-name">Nombre del Proyecto:</label>
+                    <label for="project-name">Nombre de la Obra:</label>
                     <input type="text" id="project-name" name="project-name" required oninput="updateModalTitle(this.value)"><br><br>
-
+                    <select id="selectPersona">
+                        <option value="">Seleccione el cliente:</option>
+                    </select>
+                    
+                    <div id="detallesPersona">
+                        <!-- Aquí se mostrarán los detalles de la persona seleccionada -->
+                    </div>
                     <div id="stages-container">
                         <!-- Aquí se añadirán dinámicamente las etapas -->
                     </div>
 
                     <button type="button" onclick="addStage()">Agregar Etapa</button><br><br>
 
-                    <button type="submit" onclick="mostrarMensaje()" >Crear Proyecto</button>
+                    <button type="submit" onclick="comprobarSeleccion()">Cargar Obra</button>
                 </form>
             </div>
         </div>

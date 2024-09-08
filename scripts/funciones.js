@@ -49,7 +49,15 @@ function addNewProject(event) {
     event.preventDefault();
 
     const projectName = document.getElementById('project-name').value;
-
+    // Obtener el nombre de la persona seleccionada
+    const personaKey = document.getElementById("selectPersona").value;
+    let personaNombre = "Sin asignar";
+    if (personaKey) {
+        const persona = JSON.parse(localStorage.getItem(personaKey));
+        if (persona && persona.nombre) {
+            personaNombre = persona.nombre;
+        }
+    }
     // Obtener todas las etapas
     const stages = [];
     const stageInputs = document.querySelectorAll('#stages-container .stage');
@@ -68,8 +76,10 @@ function addNewProject(event) {
         stagesHTML += `<p>${stage.name}: ${stage.date}</p>`;
     });
 
+   
     newProjectCard.innerHTML = `
         <h3>${projectName}</h3>
+        <h3>Cliente: ${personaNombre}</h3>
         ${stagesHTML}
     `;
 
@@ -87,24 +97,7 @@ function addNewProject(event) {
     closeCreateProjectModal();
 }
 
-// Función para actualizar el calendario con las fechas resaltadas
-function updateCalendar() {
-    const calendarInput = document.getElementById('calendar');
-    if (calendarInstance) {
-        calendarInstance.destroy();
-    }
 
-    calendarInstance = flatpickr(calendarInput, {
-        locale: 'es', // Ajuste del idioma a español
-        dateFormat: 'Y-m-d', // Formato de fecha (año-mes-día)
-        inline: true, // Muestra el calendario de forma inline
-        onDayCreate: function(dObj, dStr, fp, dayElem) {
-            if (highlightDates.includes(fp.formatDate(dayElem.dateObj, 'Y-m-d'))) {
-                dayElem.classList.add('highlight-date'); // Agrega una clase para resaltar la fecha
-            }
-        }
-    });
-}
 
 // Inicializar el calendario al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
@@ -133,14 +126,10 @@ function validar() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    console.log('Intento de inicio de sesión con usuario:', username, 'y contraseña:', password);
-
     if (username === 'admin' && password === 'admin') {
-        console.log('Inicio de sesión exitoso como admin');
         // Redirigir a la página de inicio
         window.location.href = './index.html';
     } else {
-        console.log('Credenciales incorrectas. Inténtalo de nuevo.');
         alert('Credenciales incorrectas. Inténtalo de nuevo.');
     }
 }
@@ -148,4 +137,65 @@ function validar() {
 // Función que muestra un mensaje al presionar un botón
 function mostrarMensaje() {
     alert("Se cargó la obra correctamente");
+}
+
+
+const personas = [
+    { nombre: "Juan Pérez", edad: 30, correo: "juan.perez@example.com" },
+    { nombre: "María García", edad: 25, correo: "maria.garcia@example.com" },
+    { nombre: "Luis Martínez", edad: 40, correo: "luis.martinez@example.com" }
+];
+
+// Guardar cada persona en localStorage
+personas.forEach((persona, index) => {
+    localStorage.setItem(`persona${index + 1}`, JSON.stringify(persona));
+});
+
+
+// Obtener la referencia del select
+const selectPersona = document.getElementById("selectPersona");
+
+// Cargar las personas desde localStorage
+for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith("persona")) {
+        const persona = JSON.parse(localStorage.getItem(key));
+        const option = document.createElement("option");
+        option.value = key;
+        option.textContent = persona.nombre;
+        selectPersona.appendChild(option);
+    }
+}
+
+// Mostrar detalles de la persona seleccionada
+selectPersona.addEventListener("change", function() {
+    const key = this.value;
+    const detallesPersona = document.getElementById("detallesPersona");
+
+    if (key) {
+        const persona = JSON.parse(localStorage.getItem(key));
+        detallesPersona.innerHTML = `
+            <p>Nombre: ${persona.nombre}</p>
+            <p>Edad: ${persona.edad}</p>
+            <p>Correo: ${persona.correo}</p>
+        `;
+    } else {
+        detallesPersona.innerHTML = "";
+    }
+});
+
+//función para comprobar los campos
+
+function comprobarSeleccion() {
+    const selectPersona = document.getElementById("selectPersona");
+    const personaSeleccionada = selectPersona.value;
+    const projectName = document.getElementById('project-name').value;
+    
+
+    if (personaSeleccionada && projectName) {
+        mostrarMensaje();
+    } else {
+        console.log("No se ha seleccionado ninguna persona.");
+        return false;
+    }
 }

@@ -358,3 +358,13 @@ nav ul li a {
     width: 48%; /* Ancho del 48% para que se alineen correctamente */
 }
 
+#selectPersona {
+    background-color: #d9d9d9; /* Fondo dorado */
+    color: #000000; /* Texto gris oscuro */
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none; /* Sin borde */
+    border-radius: 5px;
+    cursor: pointer; /* Cambia el cursor */
+    font-family: 'Inter', sans-serif; /* Fuente Inter */
+}

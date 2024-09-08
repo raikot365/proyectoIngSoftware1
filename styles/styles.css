@@ -1,71 +1,123 @@
-/* styles/styles.css */
+/* Importación de fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Reset y configuración básica */
 body, html {
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
-    font-style: normal;
     box-sizing: border-box;
 }
 
-
+/* Estilos del header */
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /*align-items: center;*/
     padding: 1rem 2rem;
     background: #333;
-    color:white;
+    color: white;
 }
 
+/* Estilos del logo */
 .logo {
     font-size: 1.5rem;
     font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
     text-align: center;
     letter-spacing: 0.5em;
-    background-color: #fff; /* Fondo blanco para que el degradado se vea */
-    color: transparent; /* Oculta el color original del texto */
-    background-clip: text; /* Recorta el degradado al texto */
-    background-image: linear-gradient(to right,#FFD700  0%,#fff  100%); /* Degradado de negro a rojo */
-    mix-blend-mode: normal;
+    background-color: #fff;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, #FFD700 0%, #fff 100%);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
-nav ul {
+/* Estilos generales para el menú */
+.nav-links {
     list-style: none;
     display: flex;
     gap: 1rem;
     margin: 0;
 }
 
-nav ul li {
+/* Estilo para los ítems del menú */
+.nav-links li {
     margin: 0;
 }
 
-nav ul li a {
+.nav-links li a {
     color: #ebebe9;
     text-decoration: none;
     font-size: 1.2rem;
 }
-section{
-    padding: 40px;
-    background:#ffffff00;
-    color:#d6d6d3;
+
+/* Estilo para el ícono del menú en dispositivos móviles */
+.menu-icon {
+    display: none; /* Oculto por defecto */
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
 }
 
+/* Estilos para pantallas menores a 800px */
+@media (max-width: 800px) {
+   
+    header {
+        display: grid;
+        color: white;
+        background: #333;
+        padding: 2rem 1rem;
+        justify-content: center;
+    }
+
+    .logo {
+        padding-bottom: 1rem;
+    }
+
+    .nav-links {
+        display: none; /* Ocultar el menú por defecto en pantallas pequeñas */
+        flex-direction: column; /* Alinear elementos del menú en columna */
+        width: 100%;
+        background-color: #333;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-icon {
+        display: flex; /* Mostrar el ícono del menú en pantallas pequeñas */
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 0;
+        padding: 10px 0; /* Añadir un poco de espacio entre los elementos */
+        text-align: center;
+    }
+
+    .nav-links li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/* Otros estilos para el contenido */
+section {
+    padding: 40px;
+    background: #ffffff00;
+    color: #d6d6d3;
+}
+
+/* Estilos para la sección hero */
 .hero {
     background: url('https://cdn.pixabay.com/photo/2020/03/21/06/55/bridge-4952834_1280.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color:white;
+    color: white;
     text-align: center;
     position: relative;
 }
@@ -96,6 +148,7 @@ section{
     margin-bottom: 2rem;
 }
 
+/* Estilos para los botones */
 .btn {
     padding: 0.75rem 1.5rem;
     background-color: #fbd500;
@@ -104,7 +157,8 @@ section{
     border-radius: 5px;
     font-size: 1rem;
 }
-.button-back{
+
+.button-back {
     width: 100%;
     padding: 0.75rem;
     border: #14110a;
@@ -114,13 +168,15 @@ section{
     border-radius: 5px;
     cursor: pointer;
 }
-.back-container{
+
+.back-container {
     padding-top: 15px;
     padding-left: 5px;
     position: absolute;
 }
 
-.body-log{
+/* Estilos para la página de login */
+.body-log {
     background-color: #333;
 }
 
@@ -128,7 +184,7 @@ section{
     padding: 4rem 2rem;
     background-color: transparent;
     text-align: center;
-    color:black;
+    color: black;
 }
 
 .login-container {
@@ -179,12 +235,12 @@ form .links a:hover {
     text-decoration: underline;
 }
 
-
 section h2 {
     text-align: center;
     margin-bottom: 2rem;
 }
 
+/* Estilos del footer */
 footer {
     background: #333;
     color: #ebebe9;
@@ -196,37 +252,34 @@ footer p {
     margin: 0;
 }
 
+/* Otros estilos generales */
 a {
     text-decoration: none;
 }
 
-.form-contacto{
+.form-contacto {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: auto;
 }
-.label-men{
+
+.label-men, .label-correo {
     width: 100%;
 }
-.contact-men{
-    width:-webkit-fill-available;
+
+.contact-men {
+    width: -webkit-fill-available;
 }
 
-.label-correo{
-    width:100%;
-}
-
-#about{
+#about {
     text-align: justify;
     font-size: 1.2rem;
 }
 
-.about-title{
+.about-title {
     text-align: center;
 }
 
 .main-style {
     background: linear-gradient(to bottom, #404040 40%, #333 60%);
 }
-
-
