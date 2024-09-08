@@ -140,12 +140,12 @@ function validar() {
         // Redirigir a la página de inicio
         window.location.href = './index.html';
     } else {
-        console.log('Credenciales incorrectas. Inténtalo de nuevo.');
+        //console.log('Credenciales incorrectas. Inténtalo de nuevo.');
         alert('Credenciales incorrectas. Inténtalo de nuevo.');
     }
 }
 
 // Función que muestra un mensaje al presionar un botón
-function mostrarMensaje() {
+/*function mostrarMensaje() {
     alert("Se cargó la obra correctamente");
-}
+}*/
